@@ -1,0 +1,16 @@
+<form method="GET" action="/dinosaurs">
+  <label for="nameFilter">Filter by name</label>
+  <input type="text" name="nameFilter" id="nameFilter">
+  <input type="submit">
+</form>
+
+<ul>
+  <% dinos.forEach((dino, index) => { %>
+    <li>Here is a <%= dino.type %> named <%= dino.name %>!
+      <form method="POST" action="/dinosaurs/<%= index %>/?_method=DELETE">
+        <a href="/dinosaurs/edit/<%= index %>">Edit</a>
+        <input type="submit" value="Delete">
+      </form>
+    </li>
+  <% }) %> 
+</ul>
